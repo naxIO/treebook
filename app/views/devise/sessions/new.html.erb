@@ -1,28 +1,41 @@
 
 <div class="row">
-	<div class="span4">
-		<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: "well"}) do |f| %>
+	<div class="span6">
+		<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: ""}) do |f| %>
 
-			<fieldset>
-				<legend>Log in</legend>
-
-
+			<fieldset class="hero-unit">
+				<h1>Log in</h1>
+				<p>Welcome back, we missed you.</p>
 
 				<%= f.input :email %>
 				<%= f.input :password %>
 
-				<% if devise_mapping.rememberable? -%>
-					<div><%= f.input :remember_me, as: :boolean %></div>
-				<% end -%>
+				<div class="controls">
+					<% if devise_mapping.rememberable? -%>
+						<label class="checkbox">
+							<%= f.check_box :remember_me %> Remember me
+						</label>
+					<% end -%>
+
+					<%= f.button :submit, "Sign in" %>
+				</div>
 
 			</fieldset>
 
-				<div><%= f.button :submit, "Sign in" %></div>
 		<% end %>
 
-		<%= render "devise/shared/links" %>
 	</div>
-	<div class="span4 offset2">
-		<h2>Signing in is easy</h2>
+	<div class="span4 offset1">
+		<div>
+			<h2>New here?</h2>
+			<p class="muted">It's free to create your own account.</p>
+			<%= link_to "Create account", new_user_registration_path, class: 'btn' %>
+		</div>
+
+		<div style="margin-top: 40px">
+			<h2>Forgotten your password?</h2>
+			<p class="muted">Don't worry, it's easy to get it changed.</p>
+			<%= link_to "Reset password", new_password_path(resource_name), class: 'btn' %>
+		</div>
 	</div>
 </div>
