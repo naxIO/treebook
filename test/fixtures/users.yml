@@ -1,5 +1,5 @@
 joe:
   first_name: "Joe"
   last_name: "Sergeant"
-  profile_name: "joeserg"
+  profile_name: "myprofilename"
   email: "me@joeserg.com"
