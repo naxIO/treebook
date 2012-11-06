@@ -2,23 +2,31 @@
 	<h1>All statuses</h1>
 </div>
 
-<%= link_to "Create new status", new_status_path, class: 'btn btn-success' %>
+<div class="row create">
+	<div class="span12">
+		<%= link_to "Create new status", new_status_path, class: 'btn btn-success' %>
+	</div>
+</div>
 
 <% @statuses.each do |status| %>
 <div class="status">
 	<div class="row">
 		<div class="span1">
-			<%= image_tag status.user.gravatar_url, class: 'img-circle' %>
+			<a href="/<%= status.user.profile_name %>">
+				<%= image_tag status.user.gravatar_url, class: 'img-circle' %>
+			</a>
 		</div>
 		<div class="span7">
-			<strong><%= status.user.full_name %></strong>
-			<p><%= status.content %></p>
+			<a href="/<%= status.user.profile_name %>"><strong><%= status.user.full_name %></strong></a>
+			<blockquote><p><%= status.content %></p></blockquote>
 			<div class="meta">
-				<%= link_to time_ago_in_words(status.created_at) + " ago", status %>
-				<span class="admin">
-					 | <%= link_to "Edit", edit_status_path(status) %> | 
-					<%= link_to "Delete", status, method: :delete, data: { confirm: 'Are you sure you want to delete this status?'} %>
-				</span>
+				<small>
+					<%= link_to time_ago_in_words(status.created_at) + " ago", status %>
+					<span class="admin">
+						 | <%= link_to "Edit", edit_status_path(status) %> | 
+						<%= link_to "Delete", status, method: :delete, data: { confirm: 'Are you sure you want to delete this status?'} %>
+					</span>
+				</small>
 			</div>
 		</div>
 	</div>
