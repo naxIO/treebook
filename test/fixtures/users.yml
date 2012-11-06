@@ -2,10 +2,16 @@ joe:
   first_name: "Joe"
   last_name: "Sergeant"
   profile_name: "joesergeant"
-  email: "me@joeserg.com"
+  email: "joe@test.com"
 
 jack:
   first_name: "Jack"
   last_name: "Bauer"
   profile_name: "jackbauer"
-  email: "jackbauer@ctu.gov"
+  email: "jack.b@ctu.gov"
+
+chloe:
+  first_name: "Chloe"
+  last_name: "O'Brian"
+  profile_name: "chloeobrian"
+  email: "chloe.o@ctu.gov"
