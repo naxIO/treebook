@@ -17,8 +17,18 @@
 					</ul>
 					<ul class="nav pull-right">
 						<% if user_signed_in? %>
-							<li><%= link_to current_user.full_name, edit_user_registration_path %></li>
-							<li><%= link_to "Log Out", logout_path %></li>
+							<div class="btn-group">
+								<a href="/<%= current_user.profile_name %>" class="btn">
+									<%= current_user.full_name %>
+								</a>
+								<button class="btn dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+									<li><%= link_to "Log Out", logout_path %></li>
+								</ul>
+							</div>
 						<% else %>
 							<li><%= link_to "Register", register_path %></li>
 							<li><%= link_to "Log In", login_path %></li>
