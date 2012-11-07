@@ -1,15 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div class="row well">
+	<div class="span1">
+		<%= image_tag @status.user.gravatar_url, class: 'img-circle' %>
+	</div>
+	<div class="span8">
+		<h3><%= @status.user.full_name %></h3>
+		<p class="lead"><%= @status.content %></p>
+		<p class="muted"><%= time_ago_in_words(@status.created_at) %> ago</p>
 
-<p>
-  <b>Name:</b>
-  <%= @status.user.full_name %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%= @status.content %>
-</p>
-
-
-<%= link_to 'Edit', edit_status_path(@status) %> |
-<%= link_to 'Back', statuses_path %>
+		<span class="admin">
+			<%= link_to "Edit", edit_status_path(@status) %> | 
+			<%= link_to "Delete", @status, method: :delete, data: { confirm: 'Are you sure you want to delete this status?'} %>
+		</span>
+	</div>
+</div>
