@@ -67,6 +67,20 @@ class StatusesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should not be able to edit status for another user" do 
+    sign_in users(:joe)
+    get :edit, id: statuses(:three)
+    assert_response :redirect
+    assert_redirected_to feed_path
+  end
+
+  test "should not be able to delete a status for another user" do 
+    sign_in users(:joe)
+    delete :edit, id: statuses(:three)
+    assert_response :redirect
+    assert_redirected_to feed_path
+  end
+
   test "should be redirected from update status when not logged in" do
     put :update, id: @status, status: { content: @status.content }
     assert_response :redirect
