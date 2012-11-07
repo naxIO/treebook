@@ -17,7 +17,7 @@
 					</ul>
 					<ul class="nav pull-right">
 						<% if user_signed_in? %>
-							<%= link_to "New Status", new_status_path, class: 'btn btn-primary' %>
+							<%= link_to link_icon('pencil', 'Create Status'), new_status_path, class: 'btn btn-primary' %>
 							&nbsp;
 							<div class="btn-group">
 								<a href="/<%= current_user.profile_name %>" class="btn">

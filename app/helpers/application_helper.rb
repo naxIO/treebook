@@ -11,4 +11,8 @@ module ApplicationHelper
 		end
 	end
 
+	def link_icon(icon, text)
+		"<i class='icon-#{icon} icon-white'></i> #{text}".html_safe
+	end
+
 end
