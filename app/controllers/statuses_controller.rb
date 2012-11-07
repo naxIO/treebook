@@ -5,7 +5,7 @@ class StatusesController < ApplicationController
   # GET /statuses
   # GET /statuses.json
   def index
-    @statuses = Status.all
+    @statuses = Status.all(:order => 'created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
